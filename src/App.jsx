@@ -1,0 +1,16 @@
+import mobileImage from '../assets/images/bg-sidebar-mobile.svg';
+import FormComponent from './components/form.jsx';
+import './App.css';
+
+function App() {
+	return (
+		<div className='relative w-[800px]'>
+			<div className='absolute top-0 left-0 w-full h-[150px] z-0' style={{backgroundImage: `url(${mobileImage})`, backgroundSize: 'cover'}}></div>
+			<div className='relative z-10 px-7'>
+				<FormComponent/>
+			</div>
+		</div>
+	);
+}
+
+export default App;
