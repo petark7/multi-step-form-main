@@ -1,13 +1,13 @@
 import {Form, Input} from 'antd';
+import TitleText from './ui/titleText';
 
 const PersonalInfo = () => (
 	<div className='flex flex-col gap-4 font-'>
-		<h1 className='w-full text-start text-3xl text-blue-900 font-bold'>
-            Personal info
-		</h1>
-		<p className='w-full text-start text-2xl text-gray-400'>
-            Please provide your name, email address, and phone number.
-		</p>
+
+		<TitleText title={'Personal Info'}>
+			Please provide your name, email address, and phone number.
+		</TitleText>
+
 		<Form layout='vertical' requiredMark={false}>
 			<Form.Item
 				label={<span className='text-blue-900'>Name</span>}
