@@ -28,6 +28,7 @@ const SelectPlan = () => {
 				icon={arcadeIcon}
 				name={'Arcade'}
 				price={'$9/mo'}
+				yearlySelected={selectedPaymentPeriod === 'yearly'}
 			/>
 
 			<SelectButton
@@ -37,6 +38,7 @@ const SelectPlan = () => {
 				icon={advancedIcon}
 				name={'Advanced'}
 				price={'$12/mo'}
+				yearlySelected={selectedPaymentPeriod === 'yearly'}
 			/>
 
 			<SelectButton
@@ -46,6 +48,7 @@ const SelectPlan = () => {
 				icon={proIcon}
 				name={'Pro'}
 				price={'$15/mo'}
+				yearlySelected={selectedPaymentPeriod === 'yearly'}
 			/>
 
 			<div className='flex gap-4 justify-center items-center'>
