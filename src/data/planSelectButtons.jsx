@@ -17,7 +17,7 @@ export const selectPlanButtons = (setSelectedPlan, selectedPlan, selectedPayment
 
 	<SelectButton
 		id='advanced'
-		key='arcade'
+		key='advanced'
 		setSelectedPlan={setSelectedPlan}
 		selectedPlan={selectedPlan}
 		icon={advancedIcon}
@@ -28,7 +28,7 @@ export const selectPlanButtons = (setSelectedPlan, selectedPlan, selectedPayment
 
 	<SelectButton
 		id='pro'
-		key='arcade'
+		key='pro'
 		setSelectedPlan={setSelectedPlan}
 		selectedPlan={selectedPlan}
 		icon={proIcon}

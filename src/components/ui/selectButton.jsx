@@ -20,8 +20,8 @@ const SelectButton = (
 				<img src={icon}/>
 			</div>
 			<div>
-				<h4 className='font-bold text-blue-900 text-md'>{name}</h4>
-				<h4 className='text-gray-400'>{price}</h4>
+				<h4 className='font-bold text-blue-900 text-lg'>{name}</h4>
+				<h4 className='text-gray-400 font-semibold'>{price}</h4>
 				{yearlySelected && <h4 className='text-blue-900 font-semibold'>2 months free</h4>}
 			</div>
 		</div>
