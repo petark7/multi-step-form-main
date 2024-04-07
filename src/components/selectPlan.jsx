@@ -8,11 +8,11 @@ import SelectButton from './ui/selectButton.jsx';
 
 const SelectPlan = () => {
 	const [selectedPlan, setSelectedPlan] = useState('arcade');
-	const [paymentPeriod, setPaymentPeriod] = useState('monthly');
+	const [selectedPaymentPeriod, setSelectedPaymentPeriod] = useState('monthly');
 
 	const blue900 = '#1e3a8a';
 	const onPaymentPeriodSwitch = checked => {
-		setPaymentPeriod(checked ? 'yearly' : 'monthly');
+		setSelectedPaymentPeriod(checked ? 'yearly' : 'monthly');
 	};
 
 	return (
@@ -49,14 +49,24 @@ const SelectPlan = () => {
 			/>
 
 			<div className='flex gap-4 justify-center items-center'>
-				<h4 className='font-bold text-blue-900'>Monthly</h4>
+				<h4 className={`font-bold ${selectedPaymentPeriod === 'monthly'
+					? 'text-blue-900'
+					: 'text-gray-500'}`}
+				>
+                    Monthly
+				</h4>
 				<Switch
-					checked={paymentPeriod === 'yearly'}
+					checked={selectedPaymentPeriod === 'yearly'}
 					onChange={onPaymentPeriodSwitch}
 					className='bg-blue-900'
 					style={{backgroundColor: blue900}}
 				/>
-				<h4 className='font-bold text-blue-900'>Yearly</h4>
+				<h4 className={`font-bold ${selectedPaymentPeriod === 'yearly'
+					? 'text-blue-900'
+					: 'text-gray-500'}`}
+				>
+                    Yearly
+				</h4>
 			</div>
 		</>
 
