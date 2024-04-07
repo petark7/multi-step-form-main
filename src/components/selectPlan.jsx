@@ -1,4 +1,4 @@
-import {useState} from 'react';
+import {useEffect, useState} from 'react';
 import {Switch} from 'antd';
 import arcadeIcon from '../../assets/images/icon-arcade.svg';
 import advancedIcon from '../../assets/images/icon-advanced.svg';
@@ -8,7 +8,13 @@ import SelectButton from './ui/selectButton.jsx';
 
 const SelectPlan = () => {
 	const [selectedPlan, setSelectedPlan] = useState('arcade');
+	const [paymentPeriod, setPaymentPeriod] = useState('monthly');
+
 	const blue900 = '#1e3a8a';
+	const onPaymentPeriodSwitch = checked => {
+		setPaymentPeriod(checked ? 'yearly' : 'monthly');
+	};
+
 	return (
 		<>
 			<TitleText title={'Select your plan'}>
@@ -44,7 +50,12 @@ const SelectPlan = () => {
 
 			<div className='flex gap-4 justify-center items-center'>
 				<h4 className='font-bold text-blue-900'>Monthly</h4>
-				<Switch className='bg-blue-900' style={{backgroundColor: blue900}}/>
+				<Switch
+					checked={paymentPeriod === 'yearly'}
+					onChange={onPaymentPeriodSwitch}
+					className='bg-blue-900'
+					style={{backgroundColor: blue900}}
+				/>
 				<h4 className='font-bold text-blue-900'>Yearly</h4>
 			</div>
 		</>
