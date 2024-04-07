@@ -1,13 +1,13 @@
-import CircleButton from "../components/ui/circleButton";
+import CircleButton from '../components/ui/circleButton';
 
-export const buttonList = [
+export const buttonList = (activeButtonid, setActiveButtonid) => ([
 	<CircleButton
 		id={1}
 		key={1}
 		active={activeButtonid}
 		setActiveButtonid={setActiveButtonid}
 	>
-1
+    1
 	</CircleButton>,
 
 	<CircleButton
@@ -16,7 +16,7 @@ export const buttonList = [
 		active={activeButtonid}
 		setActiveButtonid={setActiveButtonid}
 	>
-2
+    2
 	</CircleButton>,
 
 	<CircleButton
@@ -25,7 +25,7 @@ export const buttonList = [
 		active={activeButtonid}
 		setActiveButtonid={setActiveButtonid}
 	>
-3
+    3
 	</CircleButton>,
 
 	<CircleButton
@@ -33,6 +33,7 @@ export const buttonList = [
 		key={4}
 		active={activeButtonid}
 		setActiveButtonid={setActiveButtonid}>
-4
+    4
 	</CircleButton>,
-];
+]
+);

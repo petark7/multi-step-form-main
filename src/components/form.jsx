@@ -3,7 +3,6 @@ import {Button} from 'antd';
 import {buttonList} from '../data/buttonList.jsx';
 import PersonalInfo from './personalInfo.jsx';
 import FormContent from './ui/formContent.jsx';
-import CircleButton from './ui/circleButton.jsx';
 
 const FormComponent = () => {
 	const [activeButtonid, setActiveButtonid] = useState(1);
@@ -11,7 +10,7 @@ const FormComponent = () => {
 	return (
 		<div className='h-screen flex flex-col items-center justify-evenly'>
 			<div className='flex gap-3 text-white'>
-				{buttonList}
+				{buttonList(activeButtonid, setActiveButtonid)}
 			</div>
 
 			<FormContent>
