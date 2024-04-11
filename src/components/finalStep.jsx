@@ -1,3 +1,4 @@
+import {DEEP_BLUE} from '../constants/colors.jsx';
 import CheckboxTitleDesc from './ui/checkboxTitleDesc.jsx';
 import TitleText from './ui/titleText.jsx';
 
@@ -37,7 +38,7 @@ const FinalStep = () => (
 			<div>
 				<div className='text-gray-400 text-xl'>Total (per year)</div>
 			</div>
-			<div className='text-purplishBlue text-2xl font-bold'>$120/yr</div>
+			<div className={`text-[${DEEP_BLUE}] text-2xl font-bold`}>$120/yr</div>
 		</div>
 	</div>
 );
