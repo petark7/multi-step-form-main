@@ -2,7 +2,7 @@ import {ConfigProvider} from 'antd';
 import mobileImage from '../assets/images/bg-sidebar-mobile.svg';
 import FormComponent from './components/form.jsx';
 import './App.css';
-import {PURPLISH_BLUE} from './constants/colors.jsx';
+import {DEEP_BLUE} from './constants/colors.jsx';
 
 function App() {
 	return (
@@ -12,7 +12,7 @@ function App() {
 				<ConfigProvider
 					theme={{
 						token: {
-							colorPrimary: PURPLISH_BLUE,
+							colorPrimary: DEEP_BLUE,
 						},
 					}}
 				>

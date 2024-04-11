@@ -5,6 +5,7 @@ import PersonalInfo from './personalInfo.jsx';
 import FormContent from './ui/formContent.jsx';
 import SelectPlan from './selectPlan.jsx';
 import SelectAddOns from './selectAddOns.jsx';
+import FinalStep from './finalStep.jsx';
 
 const FormComponent = () => {
 	const [activeButtonid, setActiveButtonid] = useState(1);
@@ -18,7 +19,8 @@ const FormComponent = () => {
 			<FormContent stylingClass='flex flex-col gap-4 mx-6'>
 				{/* <PersonalInfo/> */}
 				{/* <SelectPlan/> */}
-				<SelectAddOns/>
+				{/* <SelectAddOns/> */}
+				<FinalStep/>
 			</FormContent>
 
 			<div className='w-full flex items-center justify-between bg-white h-[100px] p-5'>
