@@ -17,19 +17,33 @@ const FormComponent = () => {
 			</div>
 
 			<FormContent stylingClass='flex flex-col gap-4 mx-6'>
-				{/* <PersonalInfo/> */}
-				{/* <SelectPlan/> */}
-				{/* <SelectAddOns/> */}
-				<FinalStep/>
+				{activeButtonid === 1 && <PersonalInfo />}
+				{activeButtonid === 2 && <SelectPlan />}
+				{activeButtonid === 3 && <SelectAddOns />}
+				{activeButtonid === 4 && <FinalStep />}
 			</FormContent>
 
 			<div className='w-full flex items-center justify-between bg-white h-[100px] p-5'>
-				<h3 className='text-gray-400 font-semibold text-xl hover:cursor-pointer'>Go Back</h3>
+				<h3
+					className='text-gray-400 font-semibold text-xl hover:cursor-pointer'
+					onClick={() => {
+						if (activeButtonid > 1) {
+							setActiveButtonid(previousID => previousID - 1);
+						}
+					}}
+				>
+					Go Back
+				</h3>
 
 				<Button
 					className='bg-blue-900 text-white text-xl font-semibold
 					hover:bg-blue-400 h-[60px] w-[130px]'
 					size='large'
+					onClick={() => {
+						if (activeButtonid < 4) {
+							setActiveButtonid(previousID => previousID + 1);
+						}
+					}}
 				>Next Step
 				</Button>
 			</div>

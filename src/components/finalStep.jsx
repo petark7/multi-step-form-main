@@ -1,5 +1,4 @@
 import {DEEP_BLUE} from '../constants/colors.jsx';
-import CheckboxTitleDesc from './ui/checkboxTitleDesc.jsx';
 import TitleText from './ui/titleText.jsx';
 
 const FinalStep = () => (
