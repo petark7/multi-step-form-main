@@ -1,5 +1,5 @@
 import {ConfigProvider} from 'antd';
-import mobileImage from '../assets/images/bg-sidebar-mobile.svg';
+import mobileImage from '/assets/images/bg-sidebar-mobile.svg';
 import FormComponent from './components/form.jsx';
 import './App.css';
 import {DEEP_BLUE} from './constants/colors.jsx';
