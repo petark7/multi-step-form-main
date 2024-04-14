@@ -7,7 +7,13 @@ import SelectPlan from './selectPlan.jsx';
 import SelectAddOns from './selectAddOns.jsx';
 import FinalStep from './finalStep.jsx';
 
-const FormComponent = () => {
+const FormComponent = ({
+	state,
+	selectedPlan,
+	setSelectedPlan,
+	selectedPaymentPeriod,
+	setSelectedPaymentPeriod,
+}) => {
 	const [activeButtonid, setActiveButtonid] = useState(1);
 
 	return (
@@ -17,10 +23,15 @@ const FormComponent = () => {
 			</div>
 
 			<FormContent stylingClass='flex flex-col gap-4 mx-6'>
-				{activeButtonid === 1 && <PersonalInfo />}
-				{activeButtonid === 2 && <SelectPlan />}
-				{activeButtonid === 3 && <SelectAddOns />}
-				{activeButtonid === 4 && <FinalStep />}
+				{activeButtonid === 1 && <PersonalInfo userState={state.userData} />}
+				{activeButtonid === 2 && <SelectPlan
+					planPrices={state.planPrices}
+					setSelectedPlan={setSelectedPlan}
+					selectedPlan={selectedPlan}
+					setSelectedPaymentPeriod={setSelectedPaymentPeriod}
+					selectedPaymentPeriod={selectedPaymentPeriod}/>}
+				{activeButtonid === 3 && <SelectAddOns addonPrices={state.addonPrices}/>}
+				{activeButtonid === 4 && <FinalStep state={state}/>}
 			</FormContent>
 
 			<div className='w-full flex items-center justify-between bg-white h-[100px] p-5'>
@@ -44,7 +55,8 @@ const FormComponent = () => {
 							setActiveButtonid(previousID => previousID + 1);
 						}
 					}}
-				>Next Step
+				>
+					Next Step
 				</Button>
 			</div>
 
