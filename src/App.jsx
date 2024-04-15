@@ -10,7 +10,7 @@ function App() {
 	const [appState, setAppState] = useState({
 		userData: [],
 		selectedPlan: '',
-		addonsSelected: [],
+		selectedAddons: [],
 		selectedPaymentPeriod: 'monthly',
 		planPrices: {
 			arcadeMonthly: 9,
@@ -21,9 +21,9 @@ function App() {
 			proYearly: 150,
 		},
 		addonPrices: {
-			onlineService: 1,
-			largerStorage: 2,
-			customizableProfile: 2,
+			onlineServicePrice: 1,
+			largerStoragePrice: 2,
+			customizableProfilePrice: 2,
 		},
 	});
 
@@ -35,7 +35,20 @@ function App() {
 		setAppState(previousState => ({...previousState, selectedPaymentPeriod: period}));
 	};
 
-	console.log('selected plan', appState.selectedPlan, appState.selectedPaymentPeriod);
+	const addSelectedAddon = addon => {
+		setAppState(previousState => {
+			const addons = [...previousState.selectedAddons];
+			const index = addons.indexOf(addon);
+			if (index === -1) {
+				addons.push(addon); // Add addon if not already present
+			} else {
+				addons.splice(index, 1); // Remove addon if already present
+			}
+
+			return {...previousState, selectedAddons: addons};
+		});
+	};
+
 	return (
 		<div className='relative w-[800px]'>
 			<div className='absolute top-0 left-0 w-full h-[150px] z-0' style={{backgroundImage: `url(${mobileImage})`, backgroundSize: 'cover'}}></div>
@@ -52,7 +65,9 @@ function App() {
 						selectedPlan={appState.selectedPlan}
 						setSelectedPlan={setSelectedPlan}
 						selectedPaymentPeriod={appState.selectedPaymentPeriod}
-						setSelectedPaymentPeriod={setSelectedPaymentPeriod}/>
+						setSelectedPaymentPeriod={setSelectedPaymentPeriod}
+						selectedAddons={appState.selectedAddons}
+						addSelectedAddon={addSelectedAddon}/>
 				</ConfigProvider>
 			</div>
 		</div>

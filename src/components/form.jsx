@@ -13,6 +13,8 @@ const FormComponent = ({
 	setSelectedPlan,
 	selectedPaymentPeriod,
 	setSelectedPaymentPeriod,
+	selectedAddons,
+	addSelectedAddon,
 }) => {
 	const [activeButtonid, setActiveButtonid] = useState(1);
 
@@ -24,13 +26,20 @@ const FormComponent = ({
 
 			<FormContent stylingClass='flex flex-col gap-4 mx-6'>
 				{activeButtonid === 1 && <PersonalInfo userState={state.userData} />}
+
 				{activeButtonid === 2 && <SelectPlan
 					planPrices={state.planPrices}
 					setSelectedPlan={setSelectedPlan}
 					selectedPlan={selectedPlan}
 					setSelectedPaymentPeriod={setSelectedPaymentPeriod}
 					selectedPaymentPeriod={selectedPaymentPeriod}/>}
-				{activeButtonid === 3 && <SelectAddOns addonPrices={state.addonPrices}/>}
+
+				{activeButtonid === 3 && <SelectAddOns
+					addonPrices={state.addonPrices}
+					selectedAddons={selectedAddons}
+					addSelectedAddon={addSelectedAddon}
+				/>}
+
 				{activeButtonid === 4 && <FinalStep state={state}/>}
 			</FormContent>
 
