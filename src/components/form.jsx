@@ -44,20 +44,20 @@ const FormComponent = ({
 			</FormContent>
 
 			<div className='w-full flex items-center justify-between bg-white h-[100px] p-5'>
-				<h3
-					className='text-gray-400 font-semibold text-xl hover:cursor-pointer'
-					onClick={() => {
-						if (activeButtonid > 1) {
-							setActiveButtonid(previousID => previousID - 1);
-						}
-					}}
-				>
+				<div>
+					<h3
+						className={`text-gray-400 font-semibold text-xl hover:cursor-pointer
+					${activeButtonid === 1 ? 'hidden' : 'block'}`}
+						onClick={() => setActiveButtonid(previousID => previousID - 1)}
+					>
 					Go Back
-				</h3>
+					</h3>
+				</div>
 
 				<Button
-					className='bg-blue-900 text-white text-xl font-semibold
-					hover:bg-blue-400 h-[60px] w-[130px]'
+					className={`text-white text-xl font-semibold
+					hover:bg-blue-400 h-[60px] w-[130px]
+						${activeButtonid === 4 ? 'bg-purplishBlue' : 'bg-blue-900'}`}
 					size='large'
 					onClick={() => {
 						if (activeButtonid < 4) {
@@ -65,7 +65,7 @@ const FormComponent = ({
 						}
 					}}
 				>
-					Next Step
+					{activeButtonid === 4 ? 'Confirm' : 'Next Step'}
 				</Button>
 			</div>
 
