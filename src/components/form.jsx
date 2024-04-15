@@ -14,7 +14,7 @@ const FormComponent = ({
 	selectedPaymentPeriod,
 	setSelectedPaymentPeriod,
 	selectedAddons,
-	addSelectedAddon,
+	toggleSelectedAddon,
 }) => {
 	const [activeButtonid, setActiveButtonid] = useState(1);
 
@@ -37,7 +37,7 @@ const FormComponent = ({
 				{activeButtonid === 3 && <SelectAddOns
 					addonPrices={state.addonPrices}
 					selectedAddons={selectedAddons}
-					addSelectedAddon={addSelectedAddon}
+					toggleSelectedAddon={toggleSelectedAddon}
 				/>}
 
 				{activeButtonid === 4 && <FinalStep state={state}/>}

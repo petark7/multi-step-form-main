@@ -35,7 +35,7 @@ function App() {
 		setAppState(previousState => ({...previousState, selectedPaymentPeriod: period}));
 	};
 
-	const addSelectedAddon = addon => {
+	const toggleSelectedAddon = addon => {
 		setAppState(previousState => {
 			const addons = [...previousState.selectedAddons];
 			const index = addons.indexOf(addon);
@@ -67,7 +67,7 @@ function App() {
 						selectedPaymentPeriod={appState.selectedPaymentPeriod}
 						setSelectedPaymentPeriod={setSelectedPaymentPeriod}
 						selectedAddons={appState.selectedAddons}
-						addSelectedAddon={addSelectedAddon}/>
+						toggleSelectedAddon={toggleSelectedAddon}/>
 				</ConfigProvider>
 			</div>
 		</div>
