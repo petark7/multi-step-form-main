@@ -8,8 +8,14 @@ import './App.css';
 
 function App() {
 	const [appState, setAppState] = useState({
-		userData: [],
-		selectedPlan: '',
+		userData: [
+			{
+				name: '',
+				emailAddress: '',
+				phoneNumber: '',
+			},
+		],
+		selectedPlan: 'arcade',
 		selectedAddons: [],
 		selectedPaymentPeriod: 'monthly',
 		planPrices: {
@@ -26,6 +32,10 @@ function App() {
 			customizableProfilePrice: 2,
 		},
 	});
+
+	const setUserData = data => {
+		setAppState(previousState => ({...previousState, userData: data}));
+	};
 
 	const setSelectedPlan = plan => {
 		setAppState(previousState => ({...previousState, selectedPlan: plan}));
@@ -49,9 +59,14 @@ function App() {
 		});
 	};
 
+	console.log(appState.userData);
+
 	return (
 		<div className='relative w-[800px]'>
-			<div className='absolute top-0 left-0 w-full h-[150px] z-0' style={{backgroundImage: `url(${mobileImage})`, backgroundSize: 'cover'}}></div>
+			<div
+				className='absolute top-0 left-0 w-full h-[150px] z-0'
+				style={{backgroundImage: `url(${mobileImage})`, backgroundSize: 'cover'}}
+			/>
 			<div className='relative z-10'>
 				<ConfigProvider
 					theme={{
@@ -64,10 +79,13 @@ function App() {
 						state={appState}
 						selectedPlan={appState.selectedPlan}
 						setSelectedPlan={setSelectedPlan}
+						userData={appState.userData}
+						setUserData={setUserData}
 						selectedPaymentPeriod={appState.selectedPaymentPeriod}
 						setSelectedPaymentPeriod={setSelectedPaymentPeriod}
 						selectedAddons={appState.selectedAddons}
-						toggleSelectedAddon={toggleSelectedAddon}/>
+						toggleSelectedAddon={toggleSelectedAddon}
+					/>
 				</ConfigProvider>
 			</div>
 		</div>
