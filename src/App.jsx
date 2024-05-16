@@ -27,7 +27,7 @@ function App() {
 			proYearly: 150,
 		},
 		addonPrices: {
-			onlineServicePrice: 1,
+			onlineServicePrice: 3,
 			largerStoragePrice: 2,
 			customizableProfilePrice: 2,
 		},
@@ -58,8 +58,6 @@ function App() {
 			return {...previousState, selectedAddons: addons};
 		});
 	};
-
-	console.log(appState.userData);
 
 	return (
 		<div className='relative w-[800px]'>

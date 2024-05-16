@@ -70,7 +70,7 @@ const FormComponent = ({
 					toggleSelectedAddon={toggleSelectedAddon}
 				/>}
 
-				{activeButtonid === 4 && <FinalStep state={state}/>}
+				{activeButtonid === 4 && <FinalStep state={state} setActiveButtonid={setActiveButtonid}/>}
 			</FormContent>
 
 			<div className='w-full flex items-center justify-between bg-white h-[100px] p-5'>
