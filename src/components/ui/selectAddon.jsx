@@ -2,7 +2,7 @@ import {useState} from 'react';
 import {Checkbox} from 'antd';
 import PropTypes from 'prop-types';
 
-const CheckboxTitleDesc = ({title, description, additionalText}) => {
+const SelectAddon = ({id, title, description, additionalText, toggleSelectedAddon}) => {
 	const [isChecked, setIsChecked] = useState(false);
 
 	return	(
@@ -11,6 +11,7 @@ const CheckboxTitleDesc = ({title, description, additionalText}) => {
 		${isChecked ? 'border border-purplishBlue bg-blue-50/30' : 'border'}`}
 		onClick={() => {
 			setIsChecked(previousValue => !previousValue);
+			toggleSelectedAddon(id);
 		}}>
 
 			<Checkbox
@@ -31,10 +32,10 @@ const CheckboxTitleDesc = ({title, description, additionalText}) => {
 	);
 };
 
-CheckboxTitleDesc.propTypes = {
+SelectAddon.propTypes = {
 	additionalText: PropTypes.string,
 	description: PropTypes.string,
 	title: PropTypes.string,
 };
 
-export default CheckboxTitleDesc;
+export default SelectAddon;

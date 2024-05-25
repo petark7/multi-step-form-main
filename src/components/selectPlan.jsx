@@ -3,14 +3,14 @@ import {Switch} from 'antd';
 import {selectPlanButtons} from '../data/planSelectButtons.jsx';
 import TitleText from './ui/titleText.jsx';
 
-const SelectPlan = () => {
-	const [selectedPlan, setSelectedPlan] = useState('arcade');
-	const [selectedPaymentPeriod, setSelectedPaymentPeriod] = useState('monthly');
-
+const SelectPlan = ({
+	planPrices,
+	selectedPlan = 'arcade',
+	setSelectedPlan,
+	selectedPaymentPeriod,
+	setSelectedPaymentPeriod,
+}) => {
 	const blue900 = '#1e3a8a';
-	const onPaymentPeriodSwitch = checked => {
-		setSelectedPaymentPeriod(checked ? 'yearly' : 'monthly');
-	};
 
 	return (
 		<>
@@ -18,7 +18,7 @@ const SelectPlan = () => {
             You have the option of monthly or yearly billing.
 			</TitleText>
 
-			{selectPlanButtons(setSelectedPlan, selectedPlan, selectedPaymentPeriod)}
+			{selectPlanButtons(setSelectedPlan, selectedPlan, selectedPaymentPeriod, planPrices)}
 
 			<div className='flex gap-4 justify-center items-center'>
 				<h4 className={`font-bold ${selectedPaymentPeriod === 'monthly'
@@ -29,7 +29,7 @@ const SelectPlan = () => {
 				</h4>
 				<Switch
 					checked={selectedPaymentPeriod === 'yearly'}
-					onChange={onPaymentPeriodSwitch}
+					onChange={(checked => setSelectedPaymentPeriod(checked ? 'yearly' : 'monthly'))}
 					className='bg-blue-900'
 					style={{backgroundColor: blue900}}
 				/>
